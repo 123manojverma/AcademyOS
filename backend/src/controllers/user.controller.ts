@@ -41,7 +41,7 @@ export const signinController=async (req:Request,res:Response)=>{
 
 export const logoutController=async (req:Request,res:Response)=>{
     try {
-        const token=req.cookies.token?.split(' ')[1];
+        const token=req.token;
 
         const exp=req.user?.exp;
 
@@ -49,7 +49,7 @@ export const logoutController=async (req:Request,res:Response)=>{
 
         res.clearCookie("token",{httpOnly:true,secure:true,sameSite:"strict"});
 
-        res.status(StatusCodes.OK).json('User logged out successfully');
+        res.status(StatusCodes.OK).json(successResponse("","User logged out successfully"));
     } catch (error:any) {
         console.log('logout Controller error',error);
         if(error.statusCode){

@@ -11,6 +11,7 @@ import { redisConnect } from './config/redis.config';
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 
 /**
  * Registering all the routers and their corresponding routes with out app server object.
@@ -19,7 +20,6 @@ app.use(express.json());
 app.use(attachCorrelationIdMiddleware);
 app.use('/api/v1', v1Router);
 app.use('/api/v2', v2Router); 
-app.use(cookieParser());
 
 /**
  * Add the error handler middleware
