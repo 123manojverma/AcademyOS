@@ -1,7 +1,7 @@
 
 
 export type userDTO = {
-    username:string
+    name:string
     rollno:string
     college:string
     password:string
@@ -9,10 +9,18 @@ export type userDTO = {
     phoneno:string
 }
 
-export type usercreatedDTO = {
-    username:string
-    rollno:string
-    college:string
+export type CreateUserDTO = {
+    id:number
+    name:string
     email:string
-    phoneno:string
+}
+
+export type loginDTO={
+    rollno:string
+    password:string
+}
+
+export type ResponseDTO={
+    user:CreateUserDTO
+    token:string
 }

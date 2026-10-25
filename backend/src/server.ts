@@ -6,6 +6,8 @@ import { appErrorHandler, genericErrorHandler } from './middlewares/error.middle
 import logger from './config/logger.config';
 import { attachCorrelationIdMiddleware } from './middlewares/correlation.middleware';
 import { connectDB } from './config/mongodb';
+import cookieParser from 'cookie-parser';
+import { redisConnect } from './config/redis.config';
 const app = express();
 
 app.use(express.json());
@@ -17,7 +19,7 @@ app.use(express.json());
 app.use(attachCorrelationIdMiddleware);
 app.use('/api/v1', v1Router);
 app.use('/api/v2', v2Router); 
-
+app.use(cookieParser());
 
 /**
  * Add the error handler middleware
@@ -32,4 +34,5 @@ app.listen(serverConfig.PORT,async () => {
     logger.info(`Press Ctrl+C to stop the server.`);
 
     await connectDB()
+    await redisConnect();
 });
