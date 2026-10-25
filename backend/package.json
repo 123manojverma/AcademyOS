@@ -13,6 +13,7 @@
   "description": "",
   "dependencies": {
     "@prisma/adapter-mariadb": "^7.10.1",
+    "@prisma/adapter-pg": "^7.10.1",
     "@prisma/client": "^7.10.1",
     "@types/bcrypt": "^6.0.0",
     "@types/cookie-parser": "^1.4.10",
@@ -26,6 +27,7 @@
     "ioredis": "^6.0.0",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.11.4",
+    "pg": "^8.23.1",
     "redis": "^6.3.0",
     "uuid": "^11.1.0",
     "winston": "^3.17.0",
