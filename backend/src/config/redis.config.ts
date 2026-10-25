@@ -1,7 +1,7 @@
 import { createClient } from "redis";
 import { serverConfig } from ".";
 
-const redistClient = createClient({
+export const redistClient = createClient({
     url:serverConfig.REDIS_URI
 })
 
